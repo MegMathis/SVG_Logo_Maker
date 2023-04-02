@@ -1,7 +1,14 @@
 // include jest, inquirer, and fs
+// maxx length
 
-const inquirer = require("inquirer");
 const fs = require("fs");
+const inquirer = require("inquirer");
+const generateSVGLogo = require("./lib/shape");
+const MaxLengthInputPrompt = require("inquirer-maxlength-input-prompt");
+
+inquirer.registerPrompt("maxlength-input", MaxLengthInputPrompt);
+
+// prompt questions
 
 const questions = [
   {
@@ -35,3 +42,27 @@ const questions = [
     message: "Please enter the color you want your shape",
   },
 ];
+
+// function to write SVG
+
+function writeToFile(fileName, data) {
+  fs.writeFile(fileName, data, (err) => {
+    if (err) {
+      return console.log(err);
+    }
+    console.log("Generated logo.svg");
+  });
+}
+
+// function to initialize
+
+function init() {
+  inquirer.prompt(questions).then(function (answers) {
+    console.log(answers);
+    writeToFile("logo.svg", generateSVGLogo(answers));
+  });
+}
+
+// function call to init app
+
+init();
