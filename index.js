@@ -59,7 +59,7 @@ function writeToFile(fileName, data) {
 function init() {
   inquirer.prompt(questions).then(function (answers) {
     console.log(answers);
-    writeToFile("logo.svg", shape(answers));
+    writeToFile("logo.svg", shape.newLogo(answers));
   });
 }
 
