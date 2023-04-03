@@ -3,7 +3,7 @@
 
 const fs = require("fs");
 const inquirer = require("inquirer");
-const generateSVGLogo = require("./lib/shape");
+const shape = require("./lib/shape");
 const MaxLengthInputPrompt = require("inquirer-maxlength-input-prompt");
 
 inquirer.registerPrompt("maxlength-input", MaxLengthInputPrompt);
@@ -59,7 +59,7 @@ function writeToFile(fileName, data) {
 function init() {
   inquirer.prompt(questions).then(function (answers) {
     console.log(answers);
-    writeToFile("logo.svg", generateSVGLogo(answers));
+    writeToFile("logo.svg", shape(answers));
   });
 }
 
