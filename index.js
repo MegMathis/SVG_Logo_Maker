@@ -39,7 +39,7 @@ const questions = [
   {
     type: "input",
     name: "shapeColor",
-    message: "Please enter the color you want your shape",
+    message: "Please enter the color you want your shape.",
   },
 ];
 
@@ -59,7 +59,7 @@ function writeToFile(fileName, data) {
 function init() {
   inquirer.prompt(questions).then(function (answers) {
     console.log(answers);
-    writeToFile("logo.svg", shape.newLogo(answers));
+    writeToFile("./examples/logo.svg", shape.newLogo(answers));
   });
 }
 
