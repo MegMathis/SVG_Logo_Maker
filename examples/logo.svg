@@ -1,5 +1,5 @@
 <svg version="1.1"
    width="300" height="200">
-   <rect x="75" y="25" width="150" height="150" fill="Blue"/> 
+   <polygon points="75, 200 150, 0 250, 200" fill="Blue"/> 
    <text x="100" y="115" font-size="50" font-family="arial" text-anchor="inherit" fill="Pink">Meg</text>
    </svg>
